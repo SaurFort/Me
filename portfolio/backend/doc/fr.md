@@ -1,42 +1,42 @@
 # SaurFort's API <!-- omit in toc -->
 
-This is the API used and created by SaurFort
+Cette API est utilisé et a été créer par SaurFort
 
-## Summary <!-- omit in toc -->
+## Sommaire <!-- omit in toc -->
 
-- [Usage available](#usage-available)
-  - [Project](#project)
+- [Utilisation disponible](#utilisation-disponible)
+  - [Projet](#projet)
     - [Arguments](#arguments)
-    - [Example Requests](#example-requests)
-  - [Error Codes](#error-codes)
+    - [Exemple de requête](#exemple-de-requête)
+  - [Codes d'erreurs](#codes-derreurs)
 
-## Usage available
-
-> [!INFO]\
-> For all examples, we're gonna use the API like in local development `http://localhost/api`.
-
-### Project
+## Utilisation disponible
 
 > [!INFO]\
-> Actually you can only gets projects of SaurFort with some argument.
-> To access at the project's API you need to request `project.php`.
+> Pour tout les exemples nous allons utiliser l'API comme en développemen locale `http://localhost/api`.
+
+### Projet
+
+> [!INFO]\
+> Actuellement vous pouvez seulement récupérer les projets de SaurFort avec quelques arguments
+> Pour accéder à la partie projet de l'API vous avez besoin de faire des requêtes à `project.php`.
 
 #### Arguments
 
 | Name | Description | Type | Default value |
 | --- | --- | --- | --- |
-| `lang` | Take translation of the project description. | string (en) | en |
-| `sort` | Sort results by creation date. | latest/oldest | latest |
-| `filter` | Permit to filter project by name. | string | _null_ |
-| `limit` | Limit the number of projects sorted. | int | -1 (all project) |
+| `lang` | Prend la traduction de la description d'un projet. | string (en) | en |
+| `sort` | Tri les résultats par date de création. | latest/oldest | latest |
+| `filter` | Permet de filtrer par le nom. | string | _null_ |
+| `limit` | Limite le nombre de résultat rendu par l'API. | int | -1 (all project) |
 
 > [!WARNING]\
-> For the moment `lang` support only English (en) and French (fr)
-> `sort` take only two value (latest/oldest)
+> Pour le moment, `lang` supporte uniquement l'anglaid (en) et le français (fr)
+> `sort` prend seulement deux valeurs (latest/oldest)
 
-#### Example Requests
+#### Exemple de requête
 
-- Gets French project, sorted by latest:
+- Prenons les projets en français et trier du plus récent au plus ancien:
 
   ```http
   GET http://localhost/api/project.php?lang=fr&sort=latest
@@ -61,7 +61,7 @@ This is the API used and created by SaurFort
   ]
   ```
 
-- Get the first 5 projects sorted by oldest:
+- Prenons les 5 projets les plus anciens :
   
   ```http
   GET http://localhost/api/project.php?sort=oldest&limit=5
@@ -101,14 +101,14 @@ This is the API used and created by SaurFort
   ```
 
 > [!INFO]\
-> If there isn't enough row for your limit, the API return the max reachable.
+> S'il n'y a pas suffisament de données pour atteindre la limite alors l'API va retourner le maximum possible.
 
-### Error Codes
+### Codes d'erreurs
 
 > [!WARNING]\
-> Since this API is not intended for use by other users, the error codes have been customized.
+> Puisque l'API n'a pas été conçu pour être utilisé par d'autre utilisateurs, les codes d'erreurs ont été personnalisé.
 
 | Code | Description | Variation |
 | --- | --- | --- |
-| 30 | Invalid argument for project | A,B |
-| 90 | SQL query error | _none_ |
+| 30 | Argument invalide pour les projets | A,B |
+| 90 | Erreur dans une requête SQL | _aucune_ |

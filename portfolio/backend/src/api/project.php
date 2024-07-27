@@ -3,6 +3,7 @@
     header("Content-Type: application/json; charset=UTF-8");
     
     include('../database.php');
+    require('../config.php');
     
     $lang = isset($_GET['lang']) ? $_GET['lang'] : 'en';
     $sort = isset($_GET['sort']) ? $_GET['sort'] : 'latest';
@@ -10,12 +11,12 @@
     $limit = isset($_GET['limit']) ? $_GET['limit'] : -1;
     
     if (!in_array($lang, ['en', 'fr'])) {
-        echo json_encode(["code" => "30A", "message" => "Invalid language parameter."]);
+        echo json_encode(["code" => PROJECT_ARGUMENT_ERROR . "A", "message" => "Invalid language parameter."]);
         exit;
     }
     
     if (!in_array($sort, ['latest', 'oldest'])) {
-        echo json_encode(["code" => "30B", "message" => "Invalid sort parameter."]);
+        echo json_encode(["code" => PROJECT_ARGUMENT_ERROR . "B", "message" => "Invalid sort parameter."]);
         exit;
     }
     
@@ -59,7 +60,7 @@
     $result = $stmt->get_result();
     
     if ($result === false) {
-        echo json_encode(["code" => 90, "message" => "SQL Error " . $result]);
+        echo json_encode(["code" => SQL_QUERY_ERROR, "message" => "SQL Error " . $result]);
         exit;
     }
     
