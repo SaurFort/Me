@@ -12,7 +12,7 @@ const Home = () => {
     return (
         <>
             <h1>{t('welcome')}</h1>
-            <section id='presentation'>
+            <section id='presentation-title'>
                 <div>
                     <img id='pp' src={PP2024} alt={t('pp')} />
                 </div>
