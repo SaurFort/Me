@@ -12,12 +12,12 @@ Cette API est utilisé et a été créer par SaurFort
 
 ## Utilisation disponible
 
-> [!INFO]\
+> [!IMPORTANT]\
 > Pour tout les exemples nous allons utiliser l'API comme en développemen locale `http://localhost/api`.
 
 ### Projet
 
-> [!INFO]\
+> [!NOTE]\
 > Actuellement vous pouvez seulement récupérer les projets de SaurFort avec quelques arguments
 > Pour accéder à la partie projet de l'API vous avez besoin de faire des requêtes à `project.php`.
 
@@ -100,12 +100,12 @@ Cette API est utilisé et a été créer par SaurFort
   ]
   ```
 
-> [!INFO]\
+> [!NOTE]\
 > S'il n'y a pas suffisament de données pour atteindre la limite alors l'API va retourner le maximum possible.
 
 ### Codes d'erreurs
 
-> [!WARNING]\
+> [!IMPORTANT]\
 > Puisque l'API n'a pas été conçu pour être utilisé par d'autre utilisateurs, les codes d'erreurs ont été personnalisé.
 
 | Code | Description | Variation |

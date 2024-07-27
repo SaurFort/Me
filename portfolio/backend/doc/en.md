@@ -12,12 +12,12 @@ This is the API used and created by SaurFort
 
 ## Usage available
 
-> [!INFO]\
+> [!IMPORTANT]\
 > For all examples, we're gonna use the API like in local development `http://localhost/api`.
 
 ### Project
 
-> [!INFO]\
+> [!NOTE]\
 > Actually you can only gets projects of SaurFort with some argument.
 > To access at the project's API you need to request `project.php`.
 
@@ -100,12 +100,12 @@ This is the API used and created by SaurFort
   ]
   ```
 
-> [!INFO]\
+> [!NOTE]\
 > If there isn't enough row for your limit, the API return the max reachable.
 
 ### Error Codes
 
-> [!WARNING]\
+> [!IMPORTANT]\
 > Since this API is not intended for use by other users, the error codes have been customized.
 
 | Code | Description | Variation |
