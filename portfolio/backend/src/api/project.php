@@ -21,16 +21,16 @@
         exit;
     }
 
-    if (!in_array($filterType, ['id', 'name'])) {
+    if (!in_array($filterType, ['id', 'name']) && !empty($filterType)) {
         echo json_encode(["code" => PROJECT_ARGUMENT_ERROR . "C", "message" => "Invalid filter type parameter."]);
         exit;
     } else {
-        if (!isset($filter) || trim($filter) === '') {
+        if (!isset($filter) || trim($filter) === '' && !empty($filterType)) {
             echo json_encode(["code" => PROJECT_ARGUMENT_ERROR . "D", "message" => "Filter is empty but filtertype is defined."]);
             exit;
         }
     
-        if ($filterType === "id") {
+        if ($filterType === "id" && !empty($filterType)) {
             if (!filter_var($filter, FILTER_VALIDATE_INT)) {
                 echo json_encode(["code" => PROJECT_ARGUMENT_ERROR . "E", "message" => "Filtertype is defined on id but filter is not a valid integer id."]);
                 exit;
@@ -99,7 +99,7 @@
     }
     
     if (empty($projects)) {
-        echo json_encode(["code" => "91", "message" => "No projects found."]);
+        echo json_encode(["code" => SQL_QUERY_EMPTY_ROW_ERROR, "message" => "No projects found."]);
     } else {
         echo json_encode($projects);
     }
