@@ -1,7 +1,7 @@
 {
-  "name": "frontend",
+  "name": "saurfort.fr",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@svgr/webpack": "^8.1.0",
     "axios": "^1.7.2",
     "i18next": "^23.12.2",
     "i18next-browser-languagedetector": "^8.0.0",

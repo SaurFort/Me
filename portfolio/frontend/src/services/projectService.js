@@ -1,11 +1,25 @@
 import axios from 'axios';
 import config from '../config';
 
-const API_URL = 'http://localhost/SaurFort/portfolio/backend/src/api/project.php';
+const API_URL = config.API + "project.php";
 
-export const getProjects = async (lang = 'en') => {
+const normalizeLanguageCode = (lang) => {
+  switch (lang) {
+    case 'fr-FR':
+      return 'fr';
+    case 'en-US':
+    case 'en':
+      return 'en';
+    default:
+      return config.DEFAULT_LANGUAGE;
+  }
+};
+
+export const getProjects = async (sort = 'latest', lang = 'en') => {
   try {
-    const response = await axios.get(`${config.API_URL}/project.php?lang=${lang}`);
+    const normalizedLang = normalizeLanguageCode(lang);
+    const response = await axios.get(`${API_URL}?sort=${sort}&lang=${normalizedLang}`);
+    //console.log(`${API_URL}?sort=${sort}&lang=${normalizedLang}`);
     return response.data;
   } catch (error) {
     console.error('Error fetching projects:', error);

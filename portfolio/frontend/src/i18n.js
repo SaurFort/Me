@@ -2,14 +2,15 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import HttpBackend from 'i18next-http-backend';
 import LanguageDetector from 'i18next-browser-languagedetector';
+import config from './config';
 
 i18n
   .use(HttpBackend)
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
-    //lng: 'fr', // Forced language for test
-    fallbackLng: 'en', // Default language
+    //lng: 'fr', // Forced a language to test it
+    fallbackLng: config.DEFAULT_LANGUAGE,
     debug: true,
     backend: {
       loadPath: '/locales/{{lng}}/translation.json',

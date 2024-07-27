@@ -1,8 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import Header from './components/Header';
-//import Footer from './components/Footer';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import Home from './pages/Home';
 import Projects from './pages/Projects';
 //import Blog from './pages/Blog';
 //import Contact from './pages/Contact';
@@ -12,13 +13,14 @@ function App() {
 
   return (
     <Router>
-      <Header />
+      <Navbar />
       <main>
-        <h1>{t('welcome')}</h1>
         <Routes>
+          <Route path="/" element={<Home />} />
           <Route path="/projects" element={<Projects />} />
         </Routes>
       </main>
+      <Footer />
     </Router>
   );
 }

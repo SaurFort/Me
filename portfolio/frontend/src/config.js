@@ -1,5 +1,7 @@
 const config = {
-    API_URL: 'http://localhost/SaurFort/portfolio/backend/src/api',
+    API: 'http://localhost/SaurFort/portfolio/backend/src/api/',
+    COMMON_STRG: 'http://download.saurfort.fr/',
+    DEFAULT_LANGUAGE: 'en',
 };
   
 export default config;
