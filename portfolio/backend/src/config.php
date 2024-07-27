@@ -1,7 +1,7 @@
 <?php
     // API Info
     define("NAME", "SFAPI");
-    define("VERSION", "0.2.0");
+    define("VERSION", "0.3.0");
     define("CREATOR", "SaurFort");
     define("AVAILABLE LANGUAGE", "en;fr");
 

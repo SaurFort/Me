@@ -1,6 +1,6 @@
-# SaurFort's API <!-- omit in toc -->
+# SFAPI <!-- omit in toc -->
 
-This is the API used and created by SaurFort
+This is the API used and created by SaurFort.
 
 ## Summary <!-- omit in toc -->
 
@@ -9,6 +9,9 @@ This is the API used and created by SaurFort
     - [Arguments](#arguments)
     - [Example Requests](#example-requests)
   - [Error Codes](#error-codes)
+    - [Code 30](#code-30)
+    - [Code 90](#code-90)
+    - [Code 91](#code-91)
 
 ## Usage available
 
@@ -27,12 +30,15 @@ This is the API used and created by SaurFort
 | --- | --- | --- | --- |
 | `lang` | Take translation of the project description. | string (en) | en |
 | `sort` | Sort results by creation date. | latest/oldest | latest |
-| `filter` | Permit to filter project by name. | string | _null_ |
+| `filtertype` | Permit to define the filter you want to use. | string | _null_ |
+| `filter` | Permit to define the value of filter. | string | _null_ |
 | `limit` | Limit the number of projects sorted. | int | -1 (all project) |
 
 > [!WARNING]\
-> For the moment `lang` support only English (en) and French (fr)
-> `sort` take only two value (latest/oldest)
+> For the moment, `lang` supports only English (en) and French (fr).
+> `sort` accepts only two values: `latest` or `oldest`.
+> `filtertype` accepts only two values: `id` or `name`.
+> If `filter` is defined and `filtertype` is not provided, an error may occur.
 
 #### Example Requests
 
@@ -103,6 +109,42 @@ This is the API used and created by SaurFort
 > [!NOTE]\
 > If there isn't enough row for your limit, the API return the max reachable.
 
+- Filter by project's id:
+  
+  ```http
+  GET http://localhost/api/project.php?filtertype=id&filter=1
+  ```
+
+  ```json
+  [
+    {
+      "id": 1,
+      "name": "Project 1",
+      "description": "Description of Project 1",
+      "technologies": "React, PHP, MySQL",
+      "creation": "15/03/2022"
+    }
+  ]
+  ```
+
+- Filter by project's name:
+
+  ```http
+  GET http://localhost/api/project.php?filtertype=name&filter=Project%202
+  ```
+
+  ```json
+  [
+    {
+      "id": 2,
+      "name": "Project 2",
+      "description": "Description of Project 2",
+      "technologies": "Node.js, Express, MongoDB",
+      "creation": "22/11/2021"
+    }
+  ]
+  ```
+
 ### Error Codes
 
 > [!IMPORTANT]\
@@ -110,5 +152,24 @@ This is the API used and created by SaurFort
 
 | Code | Description | Variation |
 | --- | --- | --- |
-| 30 | Invalid argument for project | A,B |
+| 30 | Invalid argument for project | A,B,C,D,E |
 | 90 | SQL query error | _none_ |
+| 91 | SQL query result is empty | _none_ |
+
+#### Code 30
+
+This code indicates an invalid argument for the project part of the API
+
+- __30A__: Invalid argument for __`sort`__ (for example, a value other than `latest` or `oldest` is supplied).
+- __30B__: Invalid argument for __`lang`__. (For example, a language other than `en` or `fr` is supplied).
+- __30C__: Invalid filter type for __`filtertype`__. (For example, a value other than `id` or `name` is supplied).
+- __30D__: The __`filter`__ is empty when `filtertype` is defined (for example, the filter parameter is absent or is n aempty string when `filtertype` is specified).
+- __30E__: __`filtertype`__ is set to `id` but the filter is not a valid ID (for example, `filter` is a non-numeric string whereas `filtertype` is `id`).
+
+#### Code 90
+
+This code indicates a generic error in the execution of the SQL query. You need to check your logs to find the problem.
+
+#### Code 91
+
+This code indicates that the SQL query executed successfully but returned no rows.
