@@ -24,7 +24,7 @@ export const load = async ({ url, cookies, request }) => {
     }
 
     // Get defined locales
-    const supportedLocales = locales.get().map((l) => l.getLowerCase());
+    const supportedLocales = locales.get().map((l) => l.toLowerCase());
 
     // Use default locale if current locale is not supported
     if(!supportedLocales.includes(locale)) {

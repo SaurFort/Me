@@ -2,6 +2,15 @@
 	"name": "saurfort-portfolio",
 	"version": "1.0.0",
 	"type": "module",
+	"private": false,
+	"author": {
+		"email": "contact@saurfort.fr",
+		"name": "SaurFort"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/SaurFort/SaurFort"
+	},
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",

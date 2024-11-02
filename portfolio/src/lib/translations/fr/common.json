@@ -1,1 +1,7 @@
-{}
+{
+    "navbar": {
+        "home": "Accueil",
+        "projects": "Projets",
+        "about": "A propos"
+    }
+}
