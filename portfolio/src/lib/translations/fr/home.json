@@ -1,6 +1,13 @@
 {
-    "head.title": "Portofolio de SaurFort",
+    "head.title": "Portfolio de SaurFort",
     "body": {
-        
+        "welcome.title": "Bienvenue sur le Portfolio de SaurFort",
+        "presentation": {
+            "title": "Salut, moi, c'est Nathan ...",
+            "biography": "J'ai :age: ans, je suis un jeune développeur fullstack, je suis plutôt créatif et je suis surtout passioné par la programmation."
+        },
+        "project": {
+            "title": "Quelques projets ..."
+        }
     }
 }

@@ -55,7 +55,7 @@
         background-color: var(--theme-bg-1);
         display: flex;
         justify-content: space-between;
-        padding-right: 2em;
+        padding-right: 1em;
         position: relative;
     }
 
@@ -159,6 +159,7 @@
     }
 
     select option {
+        font-weight: 600;
         background-color: var(--theme-bg-1);
         color: var(--theme-secondary-element);
         text-transform: uppercase;
